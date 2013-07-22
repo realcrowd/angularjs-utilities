@@ -18,28 +18,28 @@ var rcAttemptDirective = {
                 var attemptHandlers = [];
                 
                 this.onAttempt = function(handler) {
-                	attemptHandlers(handler);
+                    attemptHandlers(handler);
                 };
                 
                 this.setAttempted = function() {
-                	this.attempted = true;
-                	
-                	angular.forEach(attemptHandlers, function (handler) {
+                    this.attempted = true;
+                  
+                    angular.forEach(attemptHandlers, function (handler) {
                         handler();
                     });
                 };
             }],
             compile: function(cElement, cAttributes, transclude) {
-              return {
-                pre: function(scope, formElement, attributes, attemptController) {
-                  scope.rc = scope.rc || {};
-                  scope.rc[attributes.name] = attemptController;
-                },
-                post: function(scope, formElement, attributes, attemptController) {
-                  formElement.on('submit', function () {
-                      attemptController.setAttempted();
-                      if (!scope.$$phase) scope.$digest();
-                  });
+                return {
+                    pre: function(scope, formElement, attributes, attemptController) {
+                        scope.rc = scope.rc || {};
+                        scope.rc[attributes.name] = attemptController;
+                    },
+                    post: function(scope, formElement, attributes, attemptController) {
+                        formElement.bind('submit', function () {
+                        attemptController.setAttempted();
+                        if (!scope.$$phase) scope.$digest();
+                    });
                 }
               };
             }

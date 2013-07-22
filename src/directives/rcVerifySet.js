@@ -14,5 +14,5 @@
 var rcVerifySetDirective = {    'rcVerifySet': function () {        return {            restrict: 'A',            require: ['^rcAttempt', 'ngModel'],            link: function (scope, element, attributes, controllers) {                var attemptController = controllers[0];                var modelController = controllers[1];
                 
                 attemptController.onAttempt(function() {
-                	modelController.$setViewValue(element.val());
+                    modelController.$setViewValue(element.val());
                 });            }        };    }};

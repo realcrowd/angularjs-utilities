@@ -10,21 +10,21 @@
  * @param {expression} rcSubmit {@link guide/expression Expression} to eval.
  */
 var rcSubmitDirective = {
-	'rcSubmit': ['$parse', function ($parse) {
-		return {
-			restrict: 'A',
-			require: 'form',
-			link: function (scope, formElement, attributes, formController) {
-				
-				var fn = $parse(attributes.rcSubmit);
-				
-				formElement.on('submit', function (event) {
-					// if form is not valid cancel it.
-					if (!formController.$valid) return false;
+    'rcSubmit': ['$parse', function ($parse) {
+        return {
+            restrict: 'A',
+            require: 'form',
+            link: function (scope, formElement, attributes, formController) {
+            	
+                var fn = $parse(attributes.rcSubmit);
+
+                formElement.bind('submit', function (event) {
+                    // if form is not valid cancel it.
+                    if (!formController.$valid) return false;
                     
-					scope.$apply(function() {
-						fn(scope, {$event:event});
-					});
+                    scope.$apply(function() {
+                        fn(scope, {$event:event});
+                    });
                 });
             }
         };
