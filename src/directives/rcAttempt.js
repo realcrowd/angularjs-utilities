@@ -38,7 +38,7 @@ var rcAttemptDirective = {
                     post: function(scope, formElement, attributes, attemptController) {
                         formElement.bind('submit', function () {
                         attemptController.setAttempted();
-                        if (!scope.$$phase) scope.$digest();
+                        if (!scope.$$phase) scope.$apply();
                     });
                 }
               };
