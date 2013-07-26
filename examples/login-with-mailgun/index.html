@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  	<script src="../../lib/mailgun_validator.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="../../src/modules/rcMailgun.js"></script>
+    <script src="scripts/LoginApp.js"></script>
+    <script src="scripts/LoginController.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+          rel="stylesheet">
+  </head>
+  <body style="margin: 10px;" ng-app="LoginApp" ng-controller="LoginController">
+    <h3>Login - with Mailgun Validator</h3>
+    <form name="loginForm" novalidate="" ng-submit="login()">
+      <div class="control-group">
+        <div class="controls">
+          <input name="email" type="text" placeholder="Email" required="" ng-model="session.email" rc-mailgun-valid />
+          <span class="help-inline" ng-show="loginForm.email.$error.required">Required</span>
+          <span class="help-inline" ng-show="loginForm.email.$error.rcMailgunEmailValid">Invalid Email Address</span>
+          <span class="help-inline" ng-show="loginForm.email.$error.rcMailgunInProgress">Validating Email Address</span>
+          <span class="help-inline" ng-show="rcMailgun.mailgunStatus">Validation Error: {{ rcMailgun.mailgunStatus }}</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <input name="password" type="password" placeholder="Password" required="" ng-model="session.password" />
+          <span class="help-inline" ng-show="loginForm.password.$error.required">Required</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls controls-row">
+          <button type="submit" class="btn" value="Login" title="Login" ng-disabled="!loginForm.$valid">
+            <span>Login</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
