@@ -18,7 +18,7 @@ var rcAttemptDirective = {
                 var attemptHandlers = [];
                 
                 this.onAttempt = function(handler) {
-                    attemptHandlers(handler);
+                    attemptHandlers.push(handler);
                 };
                 
                 this.setAttempted = function() {
