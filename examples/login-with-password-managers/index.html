@@ -4,6 +4,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="../../src/directives/rcSubmit.js"></script>
     <script src="../../src/directives/rcAttempt.js"></script>
+    <script src="../../src/directives/rcVerifySet.js"></script>
     <script src="../../src/modules/rcForm.js"></script>
     <script src="scripts/LoginApp.js"></script>
     <script src="scripts/LoginController.js"></script>
@@ -18,7 +19,7 @@
              ng-class="{error: loginForm.username.$invalid && (loginForm.username.$dirty || rc.loginForm.attempted)}">
             <div class="controls">
                 <input name="username" type="text" placeholder="Username" required 
-                       ng-model="session.username" />  
+                       ng-model="session.username" rc-verify-set />  
                 <span class="help-inline" 
                       ng-show="loginForm.username.$error.required">Required</span>
             </div>
@@ -27,7 +28,7 @@
              ng-class="{error: loginForm.password.$invalid && (loginForm.password.$dirty || rc.loginForm.attempted)}">
             <div class="controls">
                 <input name="password" type="password" placeholder="Password" required 
-                       ng-model="session.password" />
+                       ng-model="session.password" rc-verify-set />
                 <span class="help-inline"
                       ng-show="loginForm.password.$error.required">Required</span>
             </div>
