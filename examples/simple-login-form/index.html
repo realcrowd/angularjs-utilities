@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="../../src/directives/rcSubmit.js"></script>
     <script src="../../src/directives/rcAttempt.js"></script>
     <script src="../../src/modules/rcForm.js"></script>
     <script src="scripts/LoginApp.js"></script>
     <script src="scripts/LoginController.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
           rel="stylesheet">
   </head>
   <body style="margin: 10px;">
-    <h1>Simple Login Form</h1>
-    <form name="loginForm" novalidate
-          ng-app="LoginApp" ng-controller="LoginController" rc-attempt rc-submit="login()">
-        <div class="control-group"
-             ng-class="{error: loginForm.username.$invalid && (loginForm.username.$dirty || rc.loginForm.attempted)}">
-            <div class="controls">
-                <input name="username" type="text" placeholder="Username" required 
-                       ng-model="session.username" />  
-                <span class="help-inline" 
-                      ng-show="loginForm.username.$error.required">Required</span>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <h1>Simple Login Form</h1>
+          <form name="loginForm" novalidate 
+            ng-app="LoginApp" ng-controller="LoginController" 
+            rc-attempt rc-submit="login()">
+            <div class="form-group" 
+              ng-class="{'has-error': loginForm.username.$invalid && (loginForm.username.$dirty || rc.loginForm.attempted)}">
+              <input class="form-control" name="username" type="text" 
+                placeholder="Username" required ng-model="session.username" />
+                <span class="help-block" 
+                  ng-show="loginForm.username.$error.required">Required</span>
             </div>
-        </div>
-        <div class="control-group"
-             ng-class="{error: loginForm.password.$invalid && (loginForm.password.$dirty || rc.loginForm.attempted)}">
-            <div class="controls">
-                <input name="password" type="password" placeholder="Password" required 
-                       ng-model="session.password" />
-                <span class="help-inline"
-                      ng-show="loginForm.password.$error.required">Required</span>
+            <div class="form-group" 
+              ng-class="{'has-error': loginForm.password.$invalid && (loginForm.password.$dirty || rc.loginForm.attempted)}">
+              <input class="form-control" name="password" type="password" 
+                placeholder="Password" required ng-model="session.password" />
+                <span class="help-block" 
+                  ng-show="loginForm.password.$error.required">Required</span>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls controls-row">
-                <button type="submit" class="btn" value="Login" title="Login">
-                    <span>Login</span>
-                </button>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary pull-right" 
+                value="Login" title="Login">
+                <span>Login</span>
+              </button>
             </div>
+          </form>
         </div>
-    </form>
+      </div>
+    </div>
   </body>
 </html>
