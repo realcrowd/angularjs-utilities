@@ -12,7 +12,10 @@ var rcAttemptDirective = {
     'rcAttempt': function () {
         return {
             restrict: 'A',
+            require: ['rcAttempt', '?form'],
             controller: ['$scope', function ($scope) {
+            	var formController = null;
+            	
                 this.attempted = false;
                 
                 var attemptHandlers = [];
@@ -28,18 +31,41 @@ var rcAttemptDirective = {
                         handler();
                     });
                 };
+                
+                this.setFormController = function(controller) {
+                    formController = controller;
+                };
+                
+                this.needsAttention = function (fieldModelController) {
+                    if (!formController) return false;
+                    
+                    if (fieldModelController) {
+                        return fieldModelController.$invalid && (fieldModelController.$dirty || this.attempted);
+                    } else {
+                        return formController && formController.$invalid && (formController.$dirty || this.attempted);
+                    }
+                };
             }],
             compile: function(cElement, cAttributes, transclude) {
                 return {
-                    pre: function(scope, formElement, attributes, attemptController) {
+                    pre: function(scope, formElement, attributes, controllers) {
+                    	
+                    	var attemptController = controllers[0];
+                        var formController = (controllers.length > 1) ? controllers[1] : null;
+                        
+                        attemptController.setFormController(formController);
+                        
                         scope.rc = scope.rc || {};
                         scope.rc[attributes.name] = attemptController;
                     },
-                    post: function(scope, formElement, attributes, attemptController) {
+                    post: function(scope, formElement, attributes, controllers) {
+                    	
+                    	var attemptController = controllers[0];
+                    	
                         formElement.bind('submit', function () {
-                        attemptController.setAttempted();
-                        if (!scope.$$phase) scope.$apply();
-                    });
+                            attemptController.setAttempted();
+                            if (!scope.$$phase) scope.$apply();
+                        });
                 }
               };
             }
