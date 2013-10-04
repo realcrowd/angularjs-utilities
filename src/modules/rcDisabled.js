@@ -42,7 +42,7 @@ var rcDisabledDirective = {
  */
 var rcDisabledProvider = function () {
     
-  var defaultDisableItemsHandler = function(rootElement, isDisabled) {
+  var defaultDisableHandler = function(rootElement, isDisabled) {
     var jElement = jQuery(rootElement);
     
     return jElement
@@ -57,18 +57,18 @@ var rcDisabledProvider = function () {
             .prop('disabled', isDisabled);
   };
   
-  var customDisableItemsHandler;
+  var customDisableHandler;
   
-  this.onDisableItems = function (customHandler) {
-    customDisableItemsHandler = customHandler;
+  this.onDisable = function (customHandler) {
+    customDisableHandler = customHandler;
   };
   
   this.$get = function () {
     return {
       disable: function (rootElement, isDisabled) {
-        return (customDisableItemsHandler) ? 
-               customDisableItemsHandler(rootElement, isDisabled) : 
-               defaultDisableItemsHandler(rootElement, isDisabled);
+        return (customDisableHandler) ? 
+               customDisableHandler(rootElement, isDisabled) : 
+               defaultDisableHandler(rootElement, isDisabled);
       }
     }
   };

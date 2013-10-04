@@ -1,7 +1,7 @@
 // define module for app
 angular.module('LoginApp', ['rcForm', 'rcDisabled'])
 .config(['rcDisabledProvider', function(rcDisabledProvider) {
-  rcDisabledProvider.onDisableItems(function(rootElement, isDisabled) {
+  rcDisabledProvider.onDisable(function(rootElement, isDisabled) {
     var jElement = jQuery(rootElement);
       
     return jElement
