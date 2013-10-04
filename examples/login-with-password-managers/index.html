@@ -3,7 +3,6 @@
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="../../src/directives/rcSubmit.js"></script>
-    <script src="../../src/directives/rcAttempt.js"></script>
     <script src="../../src/directives/rcVerifySet.js"></script>
     <script src="../../src/modules/rcForm.js"></script>
     <script src="scripts/LoginApp.js"></script>
@@ -14,7 +13,7 @@
   <body style="margin: 10px;">
     <h1>Simple Login Form</h1>
     <form name="loginForm" novalidate
-          ng-app="LoginApp" ng-controller="LoginController" rc-attempt rc-submit="login()">
+          ng-app="LoginApp" ng-controller="LoginController" rc-submit="login()">
         <div class="control-group"
              ng-class="{error: loginForm.username.$invalid && (loginForm.username.$dirty || rc.loginForm.attempted)}">
             <div class="controls">

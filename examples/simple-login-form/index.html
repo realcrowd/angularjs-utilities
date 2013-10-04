@@ -3,7 +3,6 @@
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="../../src/directives/rcSubmit.js"></script>
-    <script src="../../src/directives/rcAttempt.js"></script>
     <script src="../../src/modules/rcForm.js"></script>
     <script src="scripts/LoginApp.js"></script>
     <script src="scripts/LoginController.js"></script>
@@ -17,7 +16,7 @@
           <h1>Simple Login Form</h1>
           <form name="loginForm" novalidate 
             ng-app="LoginApp" ng-controller="LoginController" 
-            rc-attempt rc-submit="login()">
+            rc-submit="login()">
             <div class="form-group" 
               ng-class="{'has-error': rc.loginForm.needsAttention(loginForm.username)}">
               <input class="form-control" name="username" type="text" 
