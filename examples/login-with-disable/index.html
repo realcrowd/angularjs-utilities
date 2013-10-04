@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="../../src/directives/rcSubmit.js"></script>
+    <script src="../../src/modules/rcForm.js"></script>
+    <script src="../../src/modules/rcDisabled.js"></script>
+    <script src="scripts/LoginApp.js"></script>
+    <script src="scripts/LoginController.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+  </head>
+  <body ng-app="LoginApp">
+    <div class="container" ng-controller="LoginController">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <h1>Simple Login Form</h1>
+          <form name="loginForm" novalidate  
+            rc-submit="login()" rc-disabled="rc.loginForm.submitInProgress">
+            <div class="form-group" 
+              ng-class="{'has-error': rc.loginForm.needsAttention(loginForm.username)}">
+              <input class="form-control" name="username" type="text" 
+                placeholder="Username" required ng-model="session.username" />
+                <span class="help-block" 
+                  ng-show="loginForm.username.$error.required">Required</span>
+            </div>
+            <div class="form-group" 
+              ng-class="{'has-error': rc.loginForm.needsAttention(loginForm.password)}">
+              <input class="form-control" name="password" type="password" 
+                placeholder="Password" required ng-model="session.password" />
+                <span class="help-block" 
+                  ng-show="loginForm.password.$error.required">Required</span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary pull-right" 
+                value="Login" title="Login">
+                <span>Login</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
