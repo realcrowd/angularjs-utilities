@@ -17,3 +17,5 @@ This is a repository of all the custom AngularJS components we created that we t
 + rcDisabled - This module contains the custom directive and provider used to easily disable UI elements during long running operations.
   + rcDisabledProvider - This provider allows you to customize the logic used when the UI is being disabled.
   + rcDisabled - This directive so be placed on elements that need to be disabled.
+
++ rcDisabledBootstrap - This module is just an augmented version of rcDisabled with a custom disable method specifically designed to work with Bootstrap.
