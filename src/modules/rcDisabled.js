@@ -83,17 +83,24 @@ angular.module('rcDisabledBootstrap', ['rcDisabled'])
 .directive(rcDisabledDirective)
 .config(['rcDisabledProvider', function(rcDisabledProvider) {
   rcDisabledProvider.onDisable(function(rootElement, isDisabled) {
-    var jElement = jQuery(rootElement);
+    var jqElement = jQuery(rootElement);
       
-    return jElement
-            .find(':not([rc-disabled])')
-            .filter(function(index) {
-              return jQuery(this).parents().not(jElement).filter('[rc-disabled]').length === 0;
-            })
-            .filter('input:not([ng-disabled]), button:not([ng-disabled]), .btn, li')
-            .add(jElement)
-            .toggleClass('disabled', isDisabled)
-            .filter('input, button')
-            .prop('disabled', isDisabled);
+    jqElement = jqElement
+                  .find(':not([rc-disabled])')
+                  .filter(function(index) {
+                    return jQuery(this).parents().not(jqElement).filter('[rc-disabled]').length === 0;
+                  })
+                  .filter('input:not([ng-disabled]), button:not([ng-disabled]), .btn, li')
+                  .add(jqElement);
+            
+    // if the Bootstrap "Button" jQuery plug-in is loaded, use it on those
+    // that have it configured
+    if (jqElement.button) {
+      jqElement.find('[data-loading-text]').button((isDisabled) ? 'loading' : 'reset');
+    }
+            
+    jqElement.toggleClass('disabled', isDisabled)
+    .filter('input, button')
+    .prop('disabled', isDisabled);
   });
 }]);

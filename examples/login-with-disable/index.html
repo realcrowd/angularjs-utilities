@@ -2,6 +2,7 @@
 <html>
   <head>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="../../src/directives/rcSubmit.js"></script>
     <script src="../../src/modules/rcForm.js"></script>
@@ -33,7 +34,7 @@
                   ng-show="loginForm.password.$error.required">Required</span>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary pull-right" 
+              <button type="submit" data-loading-text="Please Wait..." class="btn btn-primary pull-right" 
                 value="Login" title="Login">
                 <span>Login</span>
               </button>
