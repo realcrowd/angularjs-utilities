@@ -16,12 +16,23 @@ var rcSubmitDirective = {
       require: ['rcSubmit', '?form'],
       controller: ['$scope', function ($scope) {
  
+ 		var formElement = null;
         var formController = null;
         var attemptHandlers = [];
         var submitCompleteHandlers = [];
  
         this.attempted = false;
         this.submitInProgress = false;
+        
+        this.setFormElement = function(element) {
+          formElement = element;
+        }
+        
+        this.submit = function() {
+          if (!formElement) return;
+          
+          jQuery(formElement).submit();
+        }
         
         this.onAttempt = function(handler) {
           attemptHandlers.push(handler);
@@ -70,6 +81,7 @@ var rcSubmitDirective = {
             var submitController = controllers[0];
             var formController = (controllers.length > 1) ? controllers[1] : null;
  
+ 			submitController.setFormElement(formElement);
             submitController.setFormController(formController);
  
             scope.rc = scope.rc || {};
@@ -111,7 +123,9 @@ var rcSubmitDirective = {
                 }, function (error) {
                   submitController.submitInProgress = false;
                   if (!scope.$$phase) scope.$apply();
-                     submitController.setSubmitComplete(false, error);
+                  $timeout(function() {
+                    submitController.setSubmitComplete(false, error);
+                  });
                 });
               };
  
