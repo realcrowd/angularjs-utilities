@@ -93,7 +93,7 @@ var rcSubmitDirective = {
             var formController = (controllers.length > 1) ? controllers[1] : null;
             var fn = $parse(attributes.rcSubmit);
  
-            formElement.bind('submit', function () {
+            formElement.bind('submit', function (event) {
               submitController.setAttempted();
               if (!scope.$$phase) scope.$apply();
  
