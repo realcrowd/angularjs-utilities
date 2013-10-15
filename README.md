@@ -23,3 +23,26 @@ This is a repository of all the custom AngularJS components we created that we t
 + rcWizard - This module contains the directives used to configure and use a Wizard UI. It is dependent on the unofficial third-party jQuery Bootstrap Wizard Plug-in (http://vadimg.com/twitter-bootstrap-wizard-example/) which in turn is dependent on the official Bootstrap "Tabs" jQuery Plug-in (http://getbootstrap.com/javascript/#tabs).
   + rcWizard - This directive configures and manages all the wizard behavior.
   + rcStep - This directive is used when advanced features are required at the step level. It is not required for basic functionality
+
+
+##License
+Copyright (c) 2013 RealCrowd
+http://www.realcrowd.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
