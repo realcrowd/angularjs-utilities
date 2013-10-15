@@ -20,6 +20,6 @@ This is a repository of all the custom AngularJS components we created that we t
 
 + rcDisabledBootstrap - This module is just an augmented version of rcDisabled with a custom disable method specifically designed to work with Bootstrap.
 
-+ rcWizard - This module contains the directives used to configure and use a Wizard UI. It is dependent on the unofficial third-party jQuery Bootstrap Wizard Plug-in which in turn is dependent on the official Bootstrap "Tabs" jQuery Plug-in.
++ rcWizard - This module contains the directives used to configure and use a Wizard UI. It is dependent on the unofficial third-party jQuery Bootstrap Wizard Plug-in (http://vadimg.com/twitter-bootstrap-wizard-example/) which in turn is dependent on the official Bootstrap "Tabs" jQuery Plug-in (http://getbootstrap.com/javascript/#tabs).
   + rcWizard - This directive configures and manages all the wizard behavior.
   + rcStep - This directive is used when advanced features are required at the step level. It is not required for basic functionality
