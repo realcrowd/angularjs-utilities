@@ -114,7 +114,7 @@ var rcWizardDirective = {
           // automatically focus on the first input of the current tab. This
           // allows for easier keyboard-ony navigation.
           if (steps.length > currentIndex && steps[currentIndex].element) {
-            steps[currentIndex].element.find('input').first().focus();
+            steps[currentIndex].element.find(':input').first().focus();
           }
         };
         
