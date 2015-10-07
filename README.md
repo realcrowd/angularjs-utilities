@@ -12,7 +12,7 @@ This is a repository of all the custom AngularJS components we created that we t
 
 + rcMailgun - This module contains the custom directive and provider used to configure and use the mailgun api validation service (http://blog.mailgun.com/post/free-email-validation-api-for-web-forms).
   + rcMailgunProvider - This provider allows you to configure the mailgun validation api and get its status.
-  + rcMailgunValid - This directive is used in conjuction with the mailgun jQuery plug-in to validate e-mail addressses.
+  + rcMailgunValid - This directive is used in conjunction with the mailgun jQuery plug-in to validate e-mail addressses.
 
 + rcDisabled - This module contains the custom directive and provider used to easily disable UI elements during long running operations.
   + rcDisabledProvider - This provider allows you to customize the logic used when the UI is being disabled.
