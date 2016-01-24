@@ -24,6 +24,14 @@
     "validation"
 
   ],
+  "main": [
+"src/directives/rcSubmit.js",
+"src/directives/rcVerifySet.js",
+"src/modules/rcDisabled.js",
+"src/modules/rcForm.js",
+"src/modules/rcMailgun.js",
+"src/modules/rcWizard.js"
+],
 
   "license": "MIT",
 
